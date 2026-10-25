@@ -1,22 +1,17 @@
 # Framing: Rawaj Pay mule detection
 
-<!-- Write a few sentences under each heading about Rawaj Pay's mule detection.
-     Keep the four headings exactly as they are. Text inside these comments does not count.
-     The grader checks only that each heading has some text under it; your Track Mentor reads it. -->
-
 ## Decision
 
-<!-- What decision changes because of the model? Who acts on it, and how many cases a day
-     can they handle? What does each kind of error cost? -->
+The model's score helps Rawaj Pay decide which transfers should be reviewed as potential mule activity. Dina, Head of Fraud, needs to prioritize cases because the team has only five analysts and limited review capacity. False positives waste analysts' time, while false negatives allow suspicious transfers to go undetected.
 
 ## Metric
 
-<!-- Which metric matches that decision, and at what threshold? Why not accuracy? -->
+Precision and recall should be considered together, alongside the operational cost of false positives and false negatives. The threshold should minimize expected cost while keeping the number of flagged transfers manageable for the analysts. Accuracy alone is not sufficient because mule cases may be much less common than legitimate transfers.
 
 ## Baseline
 
-<!-- What happens today without the model? What must the model beat, on the client's terms? -->
+The baseline is Rawaj Pay's existing process before using a model, such as its current rules and manual review. The model should be compared against this baseline using the same data and business costs. It should improve the detection of mule activity without overwhelming the five analysts with unnecessary alerts.
 
 ## Classical ML or LLM
 
-<!-- Classical model, LLM, a rule, or a mix? Argue from the decision table in the session. -->
+A classical machine learning model is the better starting point because mule detection relies on structured transfer data and measurable outcomes. A rules-based baseline can provide a simple comparison. An LLM is not necessary for scoring structured transactions, although it could potentially help analysts summarize case information later.

@@ -1,16 +1,13 @@
 # AI usage
 
-<!-- Replace every comment below with your own words. Short is fine. The grader checks only
-     that this file exists and has been changed from this template; your Track Mentor reads it. -->
-
 ## Tools I used, and for which functions
 
-<!-- e.g. "Claude for a first draft of audit(); Copilot autocomplete in metrics.py" -->
+I used ChatGPT to understand the task requirements, review edge cases, and help implement and check the logic in `rawaj/audit.py` and `rawaj/metrics.py`. I used the public pytest suite to check the implementation.
 
 ## One place where the AI was wrong, incomplete, or not what the spec said
 
-<!-- What did it produce, and how did you notice: a test, the docs, or your own reasoning? -->
+An initial test run failed because some metric functions still contained `NotImplementedError`. I compared the failures with the required function behavior, completed the implementations, and reran the tests. The public test suite then passed: 5 tests passed.
 
 ## The function I wrote without AI, and why
 
-<!-- Which one, and what you learned by writing it yourself. -->
+I wrote `precision_at_k` myself to practise stable ranking, handling tied scores, and calculating precision among the highest-ranked cases. This helped me understand how to prioritize a limited number of transfers for manual review.
